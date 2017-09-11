@@ -1,0 +1,118 @@
+/* global variables*/
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #000;
+}
+
+p {
+  font-size: 1.4em;
+}
+
+
+/*site-header section  */
+
+.site-menu {
+  background-color: #000;
+  border: 0;
+  border-radius: 0;
+  text-transform: uppercase;
+}
+
+
+/*movie section  */
+
+.movie {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  padding: 30px;
+}
+
+/*download movie  */
+
+.download-image {
+  position: relative;
+}
+.download-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-download {
+  border: 1px solid #00ffd8;
+  border-radius: 0;
+  background: #000;
+  color: #00ffd8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/*plot section  */
+.plot-section{
+  color: #444;
+  padding: 30px;
+  box-shadow: 1px 1px 20px #fff;
+}
+
+.plot-section h1 {
+  text-shadow: 1px 1px 20px #fff;
+  color: #000;
+}
+
+/*actor section   */
+
+.thumbnail {
+text-align: center;
+background-color: #000;
+box-shadow: 1px 1px 20px #e61111; ;
+}
+
+.actor-box {
+  padding: 30px;
+}
+
+/*director section  */
+.dir-image img{
+  width: 100%;
+}
+.director-box {
+  padding: 50px;
+  box-shadow: 1px 1px 20px #fff;
+}
+
+/*contact  */
+
+.contact {
+  text-align: center;
+  margin:30px;
+}
+
+.name {
+  width: 55%;
+  padding: 10px;
+  background: transparent;
+  margin: 5px;
+}
+.btn-contact {
+  background: transparent;
+  margin: 40px;
+  width: 40%;
+  padding: 30px;
+  border: 2px solid #fff;
+  text-align: center;
+  text-transform: capitalize;
+  color:
+}
+
+.footer {
+  border: 3px solid #18182b;
+  text-align: center;
+  color: #444;
+  padding: 30px;
+}
