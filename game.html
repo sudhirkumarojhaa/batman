@@ -6,7 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Game</title>
+  <link rel="icon" href="https://static.wixstatic.com/media/d5bcf8_cf230499e0a149c6b997378bd51cfc13~mv2.png" type="image/gif">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     #container {
       width: 100%;
       height: 100vh;
@@ -41,74 +48,63 @@
     .spaceship {
       position: absolute;
       top: 80%;
-      left: 45%;
-      width: 300px;
+      left: 36%;
+      width: 400px;
     }
 
-    #ufo {
+    .ufo {
       width: 90px;
       height: 90px;
       position: absolute;
-      top: 50%;
-      left: 85%;
-      animation: an 63.4s linear infinite;
     }
 
     .ufo1 {
-      width: 90px;
-      height: 90px;
-      position: absolute;
-      top: 35%;
+      top: 15%;
       left: 85%;
       animation: an 3.7s linear infinite;
     }
 
     .ufo2 {
-      width: 90px;
-      height: 90px;
-      position: absolute;
-      top: 10%;
+      top: 30%;
       right: 5%;
-      animation: and 3.9s linear infinite;
+      animation: and 30.9s linear infinite;
     }
 
     .ufo3 {
-      width: 90px;
-      height: 90px;
-      position: absolute;
-      top: 16%;
+      top: 46%;
       right: 5%;
-      animation: and 3.8s linear infinite;
+      animation: and 31.8s linear infinite;
     }
 
     .ufo4 {
-      width: 90px;
-      height: 90px;
-      position: absolute;
       top: 60%;
+      left: 85%;
+      animation: an 30.8s linear infinite;
+    }
+
+    .ufo5 {
+      top: 75%;
       right: 5%;
-      animation: and 4.8s linear infinite;
+      animation: and 30.8s linear infinite;
     }
 
     #blast {
       position: absolute;
       display: none;
-      width: 300px;
-      top: 50%;
-      left: 10%; // animation: light 5s linear infinite;
+      width: 100%;
     }
 
 
 
     @keyframes an {
       0% {
-        left: 30px;
+        left: 830px;
       }
       50% {
-        transform: rotate(20deg);
+        left: 1830px;
       }
       100% {
-        transform: rotate(0deg);
+        left: 830px;
       }
     }
 
@@ -141,8 +137,8 @@
     #astro {
       width: 40px;
       position: absolute;
-      top: 7%;
-      left: 4%;
+      top: 6%;
+      left: 2%;
       transform: translate(-50%, -50%);
     }
 
@@ -161,7 +157,7 @@
     <div class="moon">
       <img src="http://www.sacredearthandsky.org/wp-content/uploads/2015/08/Full_Moon_Luc_Viatour.jpg" alt="">
     </div>
-    <div id="astro">
+    <div id="astro" class="astro">
       <img src="https://intenseplugin.com/wp-content/uploads/2014/06/Astronaut.png" alt="">
     </div>
 
@@ -171,57 +167,28 @@
     <div id="blast">
       <img src="http://www.pngmart.com/files/4/Atomic-Explosion-Transparent-Background.png" alt="">
     </div>
-    <div id="ufo">
+    <div class="ufo ufo1">
       <img src="http://freepngimages.com/wp-content/uploads/2015/08/ufo-spaceship.png" alt="">
     </div>
-    <div class="ufo1">
+    <div class="ufo ufo2">
       <img src="http://freepngimages.com/wp-content/uploads/2015/08/ufo-spaceship.png" alt="">
     </div>
-    <div class="ufo4">
+    <div class="ufo ufo3">
       <img src="http://freepngimages.com/wp-content/uploads/2015/08/ufo-spaceship.png" alt="">
     </div>
-    <div class="ufo2">
+    <div class="ufo ufo4">
       <img src="http://freepngimages.com/wp-content/uploads/2015/08/ufo-spaceship.png" alt="">
     </div>
-    <div class="ufo3">
+    <div class="ufo ufo5">
       <img src="http://freepngimages.com/wp-content/uploads/2015/08/ufo-spaceship.png" alt="">
     </div>
   </div>
+  <script
+  src="https://code.jquery.com/jquery-1.8.3.min.js"
+  integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
+  crossorigin="anonymous"></script>
+  <script src="js/jquery-collision.js"></script>
   <script>
-    // var container = document.querySelector("#container");
-    // container.addEventListener("click",function(){
-    //   var elem = document.getElementById("animate");
-    //   var pos = 0;
-    //   var id = setInterval(move, 5);
-    //   function move() {
-    //     if (pos == 400) {
-    //       clearInterval(id);
-    //     } else {
-    //       pos++;
-    //       elem.style.top = pos + 'px';
-    //       elem.style.left = pos + 'px';
-    //     }
-    //   }
-    // });
-
-    // var moon = document.querySelector(".moon");
-    // moon.addEventListener("click",function(){
-    //   var meteor = document.getElementById("animate");
-    //   var spaceship = document.querySelector(".spaceship");
-    //   var blast = document.querySelector(".blast");
-    //   var pos = 0;
-    //   var id = setInterval(move, 5);
-    //   function move() {
-    //     if (pos == 400 ) {
-    //       clearInterval(id);
-    //     } else {
-    //       pos++;
-    //       meteor.style.top = pos + 'px';
-    //       meteor.style.left = pos + 'px';
-    //     }
-    //   }
-    // });
-
     setInterval(movePlane, 20);
     var keys = {}
 
@@ -260,40 +227,10 @@
       }
     }
 
-    const astro = $('#astro');
-    const ufo = $('#ufo');
-
-    function getPositions(box) {
-      var $box = $(box);
-      var pos = $box.position();
-      var width = $box.width();
-      var height = $box.height();
-      return [
-        [pos.left, pos.left + width],
-        [pos.top, pos.top + height]
-      ];
-
-    }
-
-    function comparePositions(p1, p2) {
-      var x1 = p1[0] < p2[0] ? p1 : p2;
-      var x2 = p1[0] < p2[0] ? p2 : p1;
-      return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
-    }
-
-    function checkCollisions() {
-      var box = $(".bomb")[0];
-      var pos = getPositions(box);
-      console.log(box);
-
-      var pos2 = getPositions(this);
-      var horizontalMatch = comparePositions(pos[0], pos2[0]);
-      var verticalMatch = comparePositions(pos[1], pos2[1]);
-      var match = horizontalMatch && verticalMatch;
-      if (match) {
-        $("#blast").show();
-      }
-    }
+    var colliders_selector = ".astro";
+    var obstacles_selector = ".ufo";
+    var hits = $(colliders_selector).collision(obstacles_selector);
+    console.log(hits);
   </script>
 </body>
 
